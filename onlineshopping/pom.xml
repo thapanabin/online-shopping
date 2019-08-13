@@ -17,6 +17,7 @@
 
 
 		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+		<!-- For solving the error superclass javax.servlet... was not found in buildpath  -->
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
