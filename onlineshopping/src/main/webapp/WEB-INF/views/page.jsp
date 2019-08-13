@@ -19,10 +19,13 @@
 <meta name="author" content="">
 <title>Online Shopping - ${title}</title>
 <script>
-  window.menu = '${title}';
-  </script>
+	window.menu = '${title}';
+</script>
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
+<!-- use bootswatch theme-->
+<link href="${css}/bootswatchtheme.css" rel="stylesheet">
+
 
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
@@ -31,35 +34,31 @@
 <body>
 
 
+	<div class="wrapper">
+		<!-- Navigation -->
+		<%@include file="./shared/navbar.jsp"%>
 
-	<!-- Navigation -->
-	<%@include file="./shared/navbar.jsp"%>
-	<!-- Loading the home content -->
-	<c:if test="${userClickHome == true}">
-		<%@include file="home.jsp"%>
-	</c:if>
-	<!-- Loading About only when user click About -->
-	<c:if test="${userClickAbout == true}">
-		<%@include file="about.jsp"%>
-	</c:if>
-
-	<!-- Loading Contact only when user click Contact -->
-	<c:if test="${userClickContact == true}">
-		<%@include file="contact.jsp"%>
-	</c:if>
-
-
-	<!-- Footer -->
-	<%@include file="./shared/footer.jsp"%>
-	
-	<script src="${js}/jquery.js"></script>
-<script src="${js}/bootstrap.min.js"></script>
-<script src="${js}/myapp.js"></script>
-	
-	
-	
-
-
+		<!--Page Content  -->
+		<div class="content">
+			<!-- Loading the home content -->
+			<c:if test="${userClickHome == true}">
+				<%@include file="home.jsp"%>
+			</c:if>
+			<!-- Loading About only when user click About -->
+			<c:if test="${userClickAbout == true}">
+				<%@include file="about.jsp"%>
+			</c:if>
+			<!-- Loading Contact only when user click Contact -->
+			<c:if test="${userClickContact == true}">
+				<%@include file="contact.jsp"%>
+			</c:if>
+		</div>
+		<!-- Footer -->
+		<%@include file="./shared/footer.jsp"%>
+		<script src="${js}/jquery.js"></script>
+		<script src="${js}/bootstrap.min.js"></script>
+		<script src="${js}/myapp.js"></script>
+	</div>
 </body>
 
 </html>

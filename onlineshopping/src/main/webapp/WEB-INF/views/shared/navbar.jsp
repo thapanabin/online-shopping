@@ -1,7 +1,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-inverse navbar-fixed-top">
     <div class="container ">
-      <a class="navbar-brand" href="${contextRoot}/home">Online Shopping</a>
+      <a class="navbar-brand" id = "home" href="${contextRoot}/home">Online Shopping</a>
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive ">
