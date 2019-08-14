@@ -15,23 +15,31 @@
 	</properties>
 	<dependencies>
 
+		<!-- Link backend project -->
+		<dependency>
+			<groupId>com.nabin</groupId>
+			<artifactId>shoppingbackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
-		<!-- For solving the error superclass javax.servlet... was not found in buildpath  -->
+		<!-- For solving the error superclass javax.servlet... was not found in 
+			buildpath -->
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<version>${javaee.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		<!--JSTL  -->
-<dependency>
-    <groupId>jstl</groupId>
-    <artifactId>jstl</artifactId>
-    <version>1.2</version>
-</dependency>
+		<!--JSTL -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
 
-		
+
 
 
 
@@ -43,11 +51,11 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- Spring -->
-<dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-webmvc</artifactId>
-    <version>${spring.version}</version>
-</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 
 
 

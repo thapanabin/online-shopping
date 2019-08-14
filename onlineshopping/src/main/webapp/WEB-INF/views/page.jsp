@@ -2,11 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<spring:url var="css" value="./resources/css"></spring:url>
-<spring:url var="js" value="./resources/js"></spring:url>
-<spring:url var="images" value="./resources/images"></spring:url>
+<spring:url var="css" value="/resources/css"></spring:url>
+<spring:url var="js" value="/resources/js"></spring:url>
+<spring:url var="images" value="/resources/images"></spring:url>
 <c:set var="contextRoot" value="${pageContext.request.contextPath }" />
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,6 +50,10 @@
 			<!-- Loading Contact only when user click Contact -->
 			<c:if test="${userClickContact == true}">
 				<%@include file="contact.jsp"%>
+			</c:if>
+			<!-- Loading products only when user click viewProducts -->
+			<c:if test="${userClickViewProducts == true or userClickCategoryProducts == true}">
+			<%@include file="listProducts.jsp" %>
 			</c:if>
 		</div>
 		<!-- Footer -->
