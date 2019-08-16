@@ -14,11 +14,11 @@
 							<li><a href="${contextRoot}/home">Home</a></li>
 							<li class="active">All Products</li>
 						</ol>
-						
+
 					</c:if>
 
 					<c:if test="${userClickCategoryProducts == true}">
-						<ol class ="breadcrumb">
+						<ol class="breadcrumb">
 							<li><a href="${contextRoot}/home">Home</a></li>
 							<li class="breadcrumb-item active">Category</li>
 							<li class="breadcrumb-item active">${category.name}</li>
@@ -26,8 +26,26 @@
 					</c:if>
 				</div>
 			</div>
+			<div class="row">
 
+				<div class="col-xs-12">
+					<table id="productListTable"
+						class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Name</th>
+
+							</tr>
+						</thead>
+
+
+					</table>
+
+
+				</div>
+
+			</div>
 		</div>
 	</div>
-
 </div>

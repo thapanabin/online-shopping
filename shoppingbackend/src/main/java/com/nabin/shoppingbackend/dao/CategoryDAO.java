@@ -6,6 +6,9 @@ import com.nabin.shoppingbackend.dto.Category;
 
 public interface CategoryDAO {
 
-	List<Category> list();
 	Category get(int id);
+	List<Category> list();
+	boolean addCategory(Category category);
+	boolean updateCategory(Category category);
+	boolean deleteCategory(Category category);
 }

@@ -25,6 +25,10 @@
 <!-- use bootswatch theme-->
 <link href="${css}/bootswatchtheme.css" rel="stylesheet">
 
+<!--Datatables bootstrap  -->
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
+
+
 
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
@@ -59,6 +63,13 @@
 		<!-- Footer -->
 		<%@include file="./shared/footer.jsp"%>
 		<script src="${js}/jquery.js"></script>
+		
+		<!--DataTable plugin  -->
+		<script src="${js}/jquery.dataTables.js"></script>
+		
+		<!--DataTable Bootstrap script  -->
+		<script src="${js}/dataTables.bootstrap.js"></script>
+		
 		<script src="${js}/bootstrap.min.js"></script>
 		<script src="${js}/myapp.js"></script>
 	</div>
