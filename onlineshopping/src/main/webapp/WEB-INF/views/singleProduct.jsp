@@ -1,3 +1,5 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <div class="container">
 
 	<div class="row">
@@ -33,12 +35,31 @@
 			Price:<strong> &#36; ${product.unitPrice} /-</strong>
 		</h4>
 		<hr />
+		
+		
+		<c:choose>
+		<c:when test="${product.quantity <1}">
+		
+		<h6>Qty. Avaiable: <span style="color:red">Out of Stock</span></h6>
+		
+		<a href="javascript:void(0)"
+			class="btn btn-success disabled"> <strike><span
+			class="glyphicon glyphicon-shopping-cart"></span><strike>Add to Cart
+		</a>
+		</c:when>
+		<c:otherwise>
 		<h6>Qty. Avaiable: ${product.quantity}</h6>
-
+		
 		<a href="${contextRoot}/cart/add/${product.id}/product"
 			class="btn btn-success"> <span
 			class="glyphicon glyphicon-shopping-cart"></span>Add to Cart
-		</a> <a href="${contextRoot}/show/all/products" class="btn btn-primary">Back</a>
+		</a> 
+		
+		</c:otherwise>
+		</c:choose>
+		
+
+		<a href="${contextRoot}/show/all/products" class="btn btn-primary">Back</a>
 	</div>
 
 </div>
