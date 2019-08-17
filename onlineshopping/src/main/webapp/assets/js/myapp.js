@@ -22,28 +22,60 @@ $(function(){
 });
 
 //code for jquery dataTable
-//create a dataset
-var products = [
-	['1','ABC'],
-	['2','DEF'],
-	['3','GHI'],
-	['4','KLM'],
-	['5','OPQ'],
-	['6','RST'],
-	['7','UVW'],
-	['8','XZA'],
-	['9','BCD'],
-	['10','EFG']
-	
-	
-];
 var $table = $('#productListTable');
 
-//execute the below code only where we have this table
+//execute this code only when we have this table
+
 if($table.length){
+	
+	var jsonUrl = '';
+	if(window.categoryId == ''){
+		jsonUrl = window.contextRoot+'/json/data/all/products';
+	}
+	else{
+		jsonUrl = window.contextRoot+'/json/data/category/'+window.categoryId+'/products';
+	}
 	$table.DataTable({
-		lengthMenu: [[3,5,10,-1],['3 Records','5 Records','10 Records','ALL']],
+		lengthMenu: [[3,5,10,-1],['3 Records','5 Records','10 Records,','ALL']],
 		pageLength:5,
-		data: products
+		ajax: {
+			url: jsonUrl,
+			dataSrc: ''
+		},
+		columns: [
+			{
+				data:'code',
+				mRender: function(data, type, row){
+					return '<img src = "'+window.contextRoot+'/resources/images/'+data+'.jpg" class = "dataTableImg"/>';
+				}
+			},
+			{
+				data:'name'
+			},
+			{
+				data:'brand'
+			},
+			{
+				data:'unitPrice',
+				mRender: function(data, type, row){
+					return '&#36; '+data //for rupee symbol
+				}
+			},
+			{
+				data:'quantity'
+			},
+			{
+				data:'id',
+				bSortable:false,//for disabling the sort function in this column
+				mRender: function(data, type, row ){
+					var str = '';//&#160 for adding the extra space
+					str+= '<a href="'+window.contextRoot+'/show/'+data+'/product" class = "btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a>&#160;'
+					str+='<a href="'+window.contextRoot+'/cart/add/'+data+'/product" class = "btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>'
+					
+					return str;
+				}
+			}
+		]
+		
 	})
 }

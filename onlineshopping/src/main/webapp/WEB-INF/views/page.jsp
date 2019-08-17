@@ -20,6 +20,10 @@
 <script>
 	window.menu = '${title}';
 </script>
+
+<script>
+	window.contextRoot = '${contextRoot}';
+</script>
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 <!-- use bootswatch theme-->
@@ -35,7 +39,6 @@
 </head>
 
 <body>
-
 
 	<div class="wrapper">
 		<!-- Navigation -->
@@ -59,6 +62,13 @@
 			<c:if test="${userClickViewProducts == true or userClickCategoryProducts == true}">
 			<%@include file="listProducts.jsp" %>
 			</c:if>
+			
+			<!--Loading single product only when user click show product -->
+			<c:if test="${userClickShowProduct == true}">
+			<%@include file="singleProduct.jsp" %>
+			</c:if>
+			
+			
 		</div>
 		<!-- Footer -->
 		<%@include file="./shared/footer.jsp"%>
