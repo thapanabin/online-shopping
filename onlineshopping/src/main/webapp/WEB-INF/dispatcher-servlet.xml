@@ -17,7 +17,7 @@
 	 ">
 
 	<context:component-scan
-		base-package="com.nabin.onlineshopping.controller"/>
+		base-package="com.nabin.onlineshopping"/>
 	<context:component-scan base-package="com.nabin.shoppingbackend"/>
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
