@@ -55,7 +55,11 @@ body {
 }
 
 footer {
-    margin: 0;
+    position: fixed;
+    left:0;
+    bottom: 0;
+    width:100%;
+    text-align:center;
 }
 
 
@@ -76,7 +80,7 @@ footer {
 
 .footer {
 	position:absolute;
-	bottom:15px;
+	bottom:0;
 	height:60px;
 	
 	
@@ -238,4 +242,3 @@ input:checked + .slider:before {
 		z-index:9999;
 		background:url(../images/pre-loader.gif) 50% no-repeat #fff
 }
-

@@ -1,5 +1,5 @@
 $(function(){
-	//solving the active menu problem
+	// solving the active menu problem
 	switch(menu){
 	case 'About Us':
 		$('#about').addClass('active');
@@ -9,6 +9,9 @@ $(function(){
 		break;
 	case 'All Products':
 		$('#listProducts').addClass('active');
+		break;
+	case 'Manage Products':
+		$('#manageProducts').addClass('active');
 		break;
 	
 	default:
@@ -21,10 +24,10 @@ $(function(){
 	
 });
 
-//code for jquery dataTable
+// code for jquery dataTable
 var $table = $('#productListTable');
 
-//execute this code only when we have this table
+// execute this code only when we have this table
 
 if($table.length){
 	
@@ -58,7 +61,7 @@ if($table.length){
 			{
 				data:'unitPrice',
 				mRender: function(data, type, row){
-					return '&#36; '+data //for rupee symbol
+					return '&#36; '+data // for rupee symbol
 				}
 			},
 			{
@@ -74,9 +77,10 @@ if($table.length){
 			},
 			{
 				data:'id',
-				bSortable:false,//for disabling the sort function in this column
+				bSortable:false,// for disabling the sort function in this
+								// column
 				mRender: function(data, type, row ){
-					var str = '';//&#160 for adding the extra space
+					var str = '';// &#160 for adding the extra space
 					str+= '<a href="'+window.contextRoot+'/show/'+data+'/product" class = "btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a>&#160;'
 					
 					if(row.quantity < 1){
@@ -93,5 +97,14 @@ if($table.length){
 			}
 		]
 		
-	})
+	});
 }
+
+// dismissing the alert after 3 seconds
+var $alert = $('.alert');
+if($alert.length){
+	setTimeout(function() {
+		$alert.fadeOut('slow');
+	},3000);
+}
+

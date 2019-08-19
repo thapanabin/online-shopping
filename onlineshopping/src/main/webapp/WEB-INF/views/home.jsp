@@ -7,10 +7,10 @@
 		<%@include file="./shared/sidebar.jsp" %>
       </div>
       <!-- /.col-lg-3 -->
-
+<!-- comment start -->
       <div class="col-lg-9">
 
-        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+         <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -34,7 +34,7 @@
           <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
-          </a>
+          </a> 
         </div>
 
         <div class="row">
@@ -140,6 +140,7 @@
 
       </div>
       <!-- /.col-lg-9 -->
+ <!-- comment END -->
 
     </div>
     <!-- /.row -->
