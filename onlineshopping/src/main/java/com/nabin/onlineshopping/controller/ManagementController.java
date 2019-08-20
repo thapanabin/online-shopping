@@ -2,15 +2,21 @@ package com.nabin.onlineshopping.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+import javax.xml.ws.BindingType;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.config.MvcNamespaceHandler;
 
 import com.nabin.shoppingbackend.dao.CategoryDAO;
 import com.nabin.shoppingbackend.dao.ProductDAO;
@@ -53,7 +59,18 @@ public class ManagementController {
 
 	// handling the product Submission
 	@RequestMapping(value = "/products", method = RequestMethod.POST)
-	public String handleProductSubmission(@ModelAttribute("product") Product mproduct) {
+	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mproduct,BindingResult results,Model model) {
+		//check if there are any errors
+		if(results.hasErrors()) {
+			
+			model.addAttribute("userClickManageProducts", true);
+			model.addAttribute("title", "ManageProducts");
+			model.addAttribute("message", "Validation failed for product");
+			return "page";
+		}
+		
+		
+		
 		logger.info(mproduct.toString());
 		
 		//create a new product record

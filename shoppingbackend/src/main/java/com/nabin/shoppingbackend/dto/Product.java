@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -18,12 +20,16 @@ public class Product {
 	private int id;
 	
 	private String code;
+	@NotBlank(message = "Please Enter the product name")
 	private String name;
+	
+	@NotBlank(message = "Please Enter the Brand Name")
 	private String brand;
 	
 	@JsonIgnore//will ignore the description in the output
+	@NotBlank(message = "Please Enter the description for Product")
 	private String description;
-	
+	@Min(value = 1, message = "Price can not be less than 1!")
 	@Column(name = "unit_price")
 	private double unitPrice;
 	

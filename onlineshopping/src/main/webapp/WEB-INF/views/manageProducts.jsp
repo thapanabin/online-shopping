@@ -28,7 +28,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="name" id="name"
 									placeholder="Product Name" class="form-control" />
-								<em class="help-block">Please Enter Product Name!</em>
+								<sf:errors path="name" cssClass="help-block" element="em"/>
 							</div>
 
 						</div>
@@ -39,7 +39,7 @@
 								<!-- parameter on path should be same as the name in the product class -->
 								<sf:input type="text" path="brand" id="name"
 									placeholder="Brand Name" class="form-control" />
-								<em class="help-block">Please Enter Brand Name!</em>
+								<sf:errors path="brand" cssClass="help-block" element="em"/>
 							</div>
 						</div>
 
@@ -50,7 +50,7 @@
 							<div class="col-md-8">
 								<sf:textarea path="description" id="description" rows="4"
 									placeholder="Write a description" class="form-control" />
-								<em class="help-block">Please Enter Short Description!</em>
+									<sf:errors path="description" cssClass="help-block" element="em"/>
 							</div>
 						</div>
 
@@ -62,6 +62,7 @@
 							<div class="col-md-8">
 								<sf:input class="form-control" type="number" path="unitPrice"
 									id="unitPrice" placeholder="Unit Price in &#36; " />
+									<sf:errors path="unitPrice" cssClass="help-block" element="em"/>
 							</div>
 						</div>
 
