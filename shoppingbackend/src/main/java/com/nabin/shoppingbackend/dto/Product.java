@@ -7,8 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -49,6 +52,11 @@ public class Product {
 	
 	private int purchases;
 	private int views;
+	
+	
+	@Transient
+	private MultipartFile file;
+	
 	
 	//setters and getters
 	public int getId() {
@@ -122,6 +130,12 @@ public class Product {
 	}
 	public void setViews(int views) {
 		this.views = views;
+	}
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
 	}
 	//default constructor for setting the uniq product id
 	public Product() {

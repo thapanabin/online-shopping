@@ -2,6 +2,7 @@ package com.nabin.onlineshopping.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import javax.xml.ws.BindingType;
 
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.MvcNamespaceHandler;
 
+import com.nabin.onlineshopping.util.FileUploadUtility;
 import com.nabin.shoppingbackend.dao.CategoryDAO;
 import com.nabin.shoppingbackend.dao.ProductDAO;
 import com.nabin.shoppingbackend.dto.Category;
@@ -59,7 +61,7 @@ public class ManagementController {
 
 	// handling the product Submission
 	@RequestMapping(value = "/products", method = RequestMethod.POST)
-	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mproduct,BindingResult results,Model model) {
+	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mproduct,BindingResult results,Model model,HttpServletRequest request) {
 		//check if there are any errors
 		if(results.hasErrors()) {
 			
@@ -75,6 +77,11 @@ public class ManagementController {
 		
 		//create a new product record
 		productDAO.addProduct(mproduct);
+		if(!mproduct.getFile().getOriginalFilename().equals("")) {
+			FileUploadUtility.uploadFile(request,mproduct.getFile(),mproduct.getCode());
+		}
+		
+		
 		return "redirect:/manage/products?operation=product";
 	}
 
