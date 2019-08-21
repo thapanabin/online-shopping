@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.MvcNamespaceHandler;
 
 import com.nabin.onlineshopping.util.FileUploadUtility;
+import com.nabin.onlineshopping.validator.ProductValidator;
 import com.nabin.shoppingbackend.dao.CategoryDAO;
 import com.nabin.shoppingbackend.dao.ProductDAO;
 import com.nabin.shoppingbackend.dto.Category;
@@ -62,6 +63,10 @@ public class ManagementController {
 	// handling the product Submission
 	@RequestMapping(value = "/products", method = RequestMethod.POST)
 	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mproduct,BindingResult results,Model model,HttpServletRequest request) {
+		
+		new ProductValidator().validate(mproduct, results);
+		
+		
 		//check if there are any errors
 		if(results.hasErrors()) {
 			
