@@ -56,9 +56,21 @@ public class ManagementController {
 			if(operation.equals("product")) {
 				mv.addObject("message", "Product Submitted Successfully");
 			}
+			else if(operation.equals("category")) {
+				mv.addObject("message", "Category Submitted Successfuly");
+			}
 		}
 
 		return mv;
+	}
+	
+	//to handle category submission
+	@RequestMapping(value = "/category",method = RequestMethod.POST)
+	public String handleCategorySubmission(@ModelAttribute Category category) {
+		//add the new category
+		categoryDAO.addCategory(category);
+		return "redirect:/manage/products?operation=category";
+		
 	}
 
 	// handling the product Submission
@@ -123,5 +135,10 @@ public class ManagementController {
 	@ModelAttribute("categories")
 	public List<Category> getCategories() {
 		return categoryDAO.list();
+	}
+	
+	@ModelAttribute("category")
+	public Category getCategory() {
+		return new Category();
 	}
 }
