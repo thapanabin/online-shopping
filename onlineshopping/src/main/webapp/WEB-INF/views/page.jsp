@@ -78,7 +78,13 @@
 		</div>
 		<!-- Footer -->
 		<%@include file="./shared/footer.jsp"%>
+		
+		<!--JQuery  -->
 		<script src="${js}/jquery.js"></script>
+		
+		<!--JQuery Validation plugin downloaded from jqueryvalidation.org -->
+		<script src="${js}/jquery.validate.js"></script>
+		
 		<script src="${js}/bootstrap.bundle.min.js"></script>
 
 		<!--DataTable plugin  -->
