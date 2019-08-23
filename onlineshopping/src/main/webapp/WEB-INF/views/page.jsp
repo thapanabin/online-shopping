@@ -86,6 +86,9 @@
 
 		<!--DataTable Bootstrap script  -->
 		<script src="${js}/dataTables.bootstrap.js"></script>
+		
+		<!--Bootbox  -->
+		<script src="${js}/bootbox.min.js"></script>
 
 
 		<script src="${js}/myapp.js"></script>

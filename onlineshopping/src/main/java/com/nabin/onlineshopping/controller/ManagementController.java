@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -63,8 +64,16 @@ public class ManagementController {
 	// handling the product Submission
 	@RequestMapping(value = "/products", method = RequestMethod.POST)
 	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mproduct,BindingResult results,Model model,HttpServletRequest request) {
-		
-		new ProductValidator().validate(mproduct, results);
+		//handle image validation for new product
+				if(mproduct.getId() ==0) {
+					new ProductValidator().validate(mproduct, results);
+					
+				}else {
+					if(!mproduct.getFile().getOriginalFilename().equals("")) {
+						new ProductValidator().validate(mproduct, results);
+
+					}
+				}
 		
 		
 		//check if there are any errors
@@ -75,12 +84,18 @@ public class ManagementController {
 			model.addAttribute("message", "Validation failed for product");
 			return "page";
 		}
-		
-		
-		
 		logger.info(mproduct.toString());
 		
-		//create a new product record
+		
+		
+		if(mproduct.getId() ==0) {
+			//create a new product if id is 0
+			productDAO.addProduct(mproduct);
+			}
+		else {
+			//update the product if id is not zero
+			productDAO.updateProduct(mproduct);
+		}
 		productDAO.addProduct(mproduct);
 		if(!mproduct.getFile().getOriginalFilename().equals("")) {
 			FileUploadUtility.uploadFile(request,mproduct.getFile(),mproduct.getCode());
@@ -89,6 +104,20 @@ public class ManagementController {
 		
 		return "redirect:/manage/products?operation=product";
 	}
+	
+	//for editing the product
+	@RequestMapping(value = "/{id}/product",method = RequestMethod.GET)
+	public ModelAndView showEditProduct(@PathVariable int id) {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("userClickManageProducts", true);
+		mv.addObject("title", "Manage Products");
+		//fetch the product from the database
+		Product nproduct = productDAO.getProduct(id);
+		//set the product fetch from the database
+		mv.addObject("product", nproduct);
+		return mv;
+	}
+	
 
 	// returning categories for all the request mapping
 	@ModelAttribute("categories")
