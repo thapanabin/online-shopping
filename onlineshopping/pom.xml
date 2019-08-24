@@ -55,7 +55,7 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- we need to exclude commons-logging from spring-core and dbcp2 to use 
 			slf4j -->
 		<dependency>
@@ -70,7 +70,7 @@
 
 			</exclusions>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-dbcp2</artifactId>
@@ -88,7 +88,15 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
+
+		<!-- Spring Web flow -->
+		<dependency>
+			<groupId>org.springframework.webflow</groupId>
+			<artifactId>spring-webflow</artifactId>
+			<version>2.4.4.RELEASE</version>
+		</dependency>
+
+
 	</dependencies>
 	<build>
 		<!-- Update to latest Version of java -->
