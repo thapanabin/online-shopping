@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Cart {
@@ -13,19 +15,27 @@ public class Cart {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name = "user_id")
-	private int userId;
-	
-	
 	@Column(name = "grand_total")
 	private double grandTotal;
 	
 	@Column(name = "cart_lines")
 	private int cartLines;
 	
+	@OneToOne
+	//@JoinColumn(name = "uid") this will help to name the column as uid if we dont mention it it will generate the column name as user_id
+	private User user;
+	
 	/*
 	 * Setter and getter for the fields
 	 */
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public int getId() {
 		return id;
@@ -39,13 +49,7 @@ public class Cart {
 		return grandTotal;
 	}
 
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+	
 
 	public void setGrandTotal(double grandTotal) {
 		this.grandTotal = grandTotal;
@@ -61,7 +65,7 @@ public class Cart {
 
 	@Override
 	public String toString() {
-		return "Cart [id=" + id + ", userId=" + userId + ", grandTotal=" + grandTotal + ", cartLines=" + cartLines
+		return "Cart [id=" + id + ", grandTotal=" + grandTotal + ", cartLines=" + cartLines
 				+ "]";
 	}
 	
