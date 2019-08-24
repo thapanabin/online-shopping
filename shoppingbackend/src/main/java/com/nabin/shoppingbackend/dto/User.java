@@ -1,10 +1,12 @@
 package com.nabin.shoppingbackend.dto;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,6 +30,15 @@ public class User {
 	private String password;
 	private boolean enabled = true;
 	
+	@OneToOne(mappedBy = "user",cascade = CascadeType.ALL )//user_detail table has taken the ownership of the relation when we use mappedby
+	private Cart cart; //cascade will tell what needs to be done of that child record that has been attached to the parent record
+						// if i delete the parent record the child record would also get deleted
+	public Cart getCart() {
+		return cart;
+	}
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
 	/*
 	 * Setter and getter for the fields
 	 */
