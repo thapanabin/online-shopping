@@ -19,7 +19,15 @@ public class Address implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@Column(name = "user_id")
+	private int userId;
 	
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	@Column(name = "address_line_one")
 	private String addressLineOne;
 	
@@ -36,15 +44,15 @@ public class Address implements Serializable {
 	private boolean shipping;
 	private boolean billing;
 	
-	@ManyToOne
-	User user;
-	
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+//	@ManyToOne
+//	User user;
+//	
+//	public User getUser() {
+//		return user;
+//	}
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
 	/*
 	 * Setter and getter for fields
 	 */
@@ -107,7 +115,7 @@ public class Address implements Serializable {
 	public String toString() {
 		return "Address [id=" + id + ", addressLineOne=" + addressLineOne + ", addressLineTwo=" + addressLineTwo
 				+ ", city=" + city + ", state=" + state + ", country=" + country + ", postalCode=" + postalCode
-				+ ", shipping=" + shipping + ", billing=" + billing + ", user=" + user + "]";
+				+ ", shipping=" + shipping + ", billing=" + billing  + "]";
 	}
 	
 
