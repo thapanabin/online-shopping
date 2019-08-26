@@ -21,6 +21,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="addressLineOne" placeholder="Enter Address Line One"
 									class="form-control" />
+								<sf:errors path="addressLineOne" cssClass="help-block" element="em"></sf:errors>
 							</div>
 
 						</div>
@@ -31,6 +32,7 @@
 								<!-- parameter on path should be same as the name in the user class -->
 								<sf:input type="text" path="addressLineTwo" placeholder="Enter Address Line Two"
 									class="form-control" />
+									<sf:errors path="addressLineTwo" cssClass="help-block" element="em"></sf:errors>
 							</div>
 						</div>
 
@@ -40,6 +42,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="city" placeholder="Enter City Name"
 									class="form-control" />
+								<sf:errors path="city" cssClass="help-block" element="em"></sf:errors>
 							</div>
 						</div>
 
@@ -51,6 +54,7 @@
 							<div class="col-md-8">
 								<sf:input type="number" class="form-control"
 									path="postalCode" placeholder="XXXXXX " />
+									<sf:errors path="postalCode" cssClass="help-block" element="em"></sf:errors>
 							</div>
 						</div>
 
@@ -60,6 +64,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="state" placeholder="Enter State Name"
 									class="form-control" />
+									<sf:errors path="state" cssClass="help-block" element="em"></sf:errors>
 							</div>
 
 						</div>
@@ -70,6 +75,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="country" placeholder="Enter Country Name"
 									class="form-control" />
+								<sf:errors path="country" cssClass="help-block" element="em"></sf:errors>
 							</div>
 
 						</div>

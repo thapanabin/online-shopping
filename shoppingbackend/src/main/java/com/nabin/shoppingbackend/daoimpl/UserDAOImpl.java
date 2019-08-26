@@ -59,7 +59,10 @@ public class UserDAOImpl implements UserDAO {
 	public User getByEmail(String email) {
 		String selectQuery  = "FROM User WHERE email = :email";
 		try {
-			return sessionFactory.getCurrentSession().createQuery(selectQuery,User.class).setParameter("email", email).getSingleResult();
+			return sessionFactory.getCurrentSession()
+					.createQuery(selectQuery,User.class)
+					.setParameter("email", email)
+					.getSingleResult();
 			
 		}catch(Exception ex){
 			ex.printStackTrace();

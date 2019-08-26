@@ -21,6 +21,8 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="firstName" placeholder="First Name"
 									class="form-control" />
+									
+									<sf:errors path="firstName" cssClass="help-block" element="em"></sf:errors>
 							</div>
 
 						</div>
@@ -32,6 +34,7 @@
 								<!-- parameter on path should be same as the name in the user class -->
 								<sf:input type="text" path="lastName" placeholder="Last Name"
 									class="form-control" />
+									<sf:errors path="lastName" cssClass="help-block" element="em"></sf:errors>
 							</div>
 						</div>
 
@@ -41,6 +44,7 @@
 							<div class="col-md-8">
 								<sf:input type="email" path="email" placeholder="abc@zyx.com"
 									class="form-control" />
+									<sf:errors path="email" cssClass="help-block" element="em"></sf:errors>
 							</div>
 						</div>
 
@@ -52,6 +56,7 @@
 							<div class="col-md-8">
 								<sf:input type="number" class="form-control"
 									path="contactNumber" placeholder="XXXXXXXXXX " />
+									<sf:errors path="contactNumber" cssClass="help-block" element="em"></sf:errors>
 							</div>
 						</div>
 
@@ -61,6 +66,18 @@
 							<div class="col-md-8">
 								<sf:input type="password" path="password" placeholder="Password"
 									class="form-control" />
+									<sf:errors path="password" cssClass="help-block" element="em"></sf:errors>
+							</div>
+
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label col-md-4" for="confirmPassword">Confirm Password
+							</label>
+							<div class="col-md-8">
+								<sf:input type="password" path="confirmPassword" placeholder="Re-enter Password"
+									class="form-control" />
+									<sf:errors path="confirmPassword" cssClass="help-block" element="em"></sf:errors>
 							</div>
 
 						</div>

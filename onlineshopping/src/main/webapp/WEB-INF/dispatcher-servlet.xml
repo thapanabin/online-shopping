@@ -42,6 +42,7 @@
 	<!-- Web flow configuration -->
 	<!--Entry point for the flow -->
 	<wf:flow-executor id="flowExecutor" />
+	
 	<wf:flow-registry id="flowRegistry"
 		base-path="/WEB-INF/views/flows"
 		flow-builder-services="flowBuilderServices">
@@ -50,7 +51,9 @@
 	</wf:flow-registry>
 
 	<wf:flow-builder-services
-		id="flowBuilderServices" view-factory-creator="viewFactoryCreator" />
+		id="flowBuilderServices" view-factory-creator="viewFactoryCreator"
+		validator="validator" />
+		
 	<bean
 		class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
 		<property name="flowExecutor" ref="flowExecutor"></property>
@@ -65,5 +68,8 @@
 	<property name="viewResolvers" ref="viewResolver"></property>
 	
 	</bean>
+	
+	<!-- validator bean  -->
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"></bean>
 
 </beans>

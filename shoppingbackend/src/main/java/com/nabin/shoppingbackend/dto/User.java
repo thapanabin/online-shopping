@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "user_detail")
@@ -25,18 +27,36 @@ public class User implements Serializable {
 	private int id;
 	
 	@Column(name = "first_name")
+	@NotBlank(message = "Please Enter first name!")
 	private String firstName;
 	
 	@Column(name = "last_name")
+	@NotBlank(message = "Please Enter last name!")
 	private String lastName;
+	
+	@NotBlank(message = "Please Enter Email!")
 	private String email;
 	
 	@Column(name = "contact_number")
+	@NotBlank(message = "Please Enter contact number!")
 	private String contactNumber;
+	
 	private String role;
+	
+	@NotBlank(message = "Please enter password!")
 	private String password;
 	private boolean enabled = true;
 	
+	//confirm password transient field
+	@Transient //it doent get stored inside the database
+	private String confirmPassword;
+	
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
 	@OneToOne(mappedBy = "user",cascade = CascadeType.ALL )//user_detail table has taken the ownership of the relation when we use mappedby
 	private Cart cart; //cascade will tell what needs to be done of that child record that has been attached to the parent record
 						// if i delete the parent record the child record would also get deleted
