@@ -253,7 +253,7 @@ $(function() {
 	
 	//-----------------------------------------
 	
-// validation code for category
+// jQuary validation code for category
 	
 
 		var $categoryForm = $('#categoryForm');
@@ -295,5 +295,45 @@ $(function() {
 
 	}
 // ----------------------------
+	
+	//Jquery Validation for login
+	var $loginForm = $('#loginform');
+	if ($loginForm.length) {
+
+		$loginForm.validate({
+
+			rules : {
+
+				username : {
+					required : true,
+					email : true
+				},
+				password : {
+					required : true,
+
+				}
+
+			},
+			
+			messages : {
+				username : {
+					required : 'Please enter the username!',
+					email: 'Please Enter valid email address!'
+				},
+				password : {
+					required : 'Please enter the password!'
+				}
+			},
+			errorElement : 'em',
+			errorPlacement : function(error, element){
+				//add the class of help-block
+				error.addClass('help-block');
+				
+				error.insertAfter(element);
+			}
+
+		});
+
+	}
 
 });

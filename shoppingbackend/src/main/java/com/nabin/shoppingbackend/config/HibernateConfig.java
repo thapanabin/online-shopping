@@ -25,7 +25,7 @@ private final static String DATABASE_USERNAME = "sa";
 private final static String DATABASE_PASSWORD = "";
 
 //dataSource bean will be avaiable
-@Bean(name = "dataSource")
+@Bean("dataSource")
 public DataSource getDataSource() {
 	BasicDataSource dataSource = new BasicDataSource();
 	
