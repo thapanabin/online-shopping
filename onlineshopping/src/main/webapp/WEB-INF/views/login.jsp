@@ -49,6 +49,16 @@
 				</div>
 			</div>
 		</nav>
+		<!--this will be displayed only if  username password is wrong  -->
+		<c:if test="${ not empty message}">
+		<div class="container">
+		<div class="row">
+		<div class="col-md-offset-3 col-md-6">
+		<div class="alert alert-danger">${message}</div>
+		</div>
+		</div>
+		</div>
+		</c:if>
 		
 		<!--Forms  -->
 		<div class="container">
@@ -82,6 +92,8 @@
 								<div class="form-group">
 									<div class="col-md-offset-4 col-md-8">
 										<input type="submit" value="Login" class="btn btn-primary">
+										<!--CSRF  -->
+										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 									</div>
 								</div>
 

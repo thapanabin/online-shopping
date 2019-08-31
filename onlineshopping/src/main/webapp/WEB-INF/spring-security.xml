@@ -20,7 +20,7 @@
 		<intercept-url pattern="/**" access="hasAuthority('USER')" />
 		
 		<!-- hasRole->ROLE_ADMIN,ROLE_USER hasAuthority->USER ADMIN  -->
-		<form-login login-page="/login"/><!--login-processing-url if you want to change login to pqr  -->
+		<form-login login-page="/login" /><!--login-processing-url if you want to change login to pqr  -->
 		<logout/>
 	</http>
 
