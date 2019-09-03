@@ -19,19 +19,22 @@ CREATE TABLE user_detail (
 	last_name VARCHAR(50),
 	role VARCHAR(50),
 	enabled BOOLEAN,
-	password VARCHAR(60),
+	password VARCHAR(65),
 	email VARCHAR(100),
 	contact_number VARCHAR(15),	
 	CONSTRAINT pk_user_id PRIMARY KEY(id)
 );
 INSERT INTO user_detail
-(first_name, last_name, role, enabled, password, email, contact_number) VALUES ('cristiano', 'ronaldo', 'ADMIN',true,'admin','cr7@gmail.com','7777777777' );
+(first_name, last_name, role, enabled, password, email, contact_number) VALUES ('cristiano', 'ronaldo', 'ADMIN',true,'$2b$10$NYalbrzi6kwquXpA067EaOv5rrHEdMp5z2v8FI5bq1bU..NyiqxU2
+','cr7@gmail.com','7777777777' );
 
 INSERT INTO user_detail
-(first_name, last_name, role, enabled, password, email, contact_number) VALUES ('virat', 'kohli', 'SUPPLIER',true,'12345','vk@gmail.com','9999999999' );
+(first_name, last_name, role, enabled, password, email, contact_number) VALUES ('virat', 'kohli', 'SUPPLIER',true,'$2b$10$9D7y7lv1TP6N59SwyPwBkuHjOSldQXzHjCWrOvq8LFs1x1RWzYnKq
+','vk@gmail.com','9999999999' );
 
 INSERT INTO user_detail
-(first_name, last_name, role, enabled, password, email, contact_number) VALUES ('leonel', 'messi', 'SUPPLIER',true,'12345','lm10@gmail.com','8888888888' );
+(first_name, last_name, role, enabled, password, email, contact_number) VALUES ('leonel', 'messi', 'SUPPLIER',true,'$2b$10$9D7y7lv1TP6N59SwyPwBkuHjOSldQXzHjCWrOvq8LFs1x1RWzYnKq
+','lm10@gmail.com','8888888888' );
 
 
 CREATE TABLE product (
