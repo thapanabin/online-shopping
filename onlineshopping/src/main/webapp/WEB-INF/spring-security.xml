@@ -16,11 +16,16 @@
 		<http pattern="/resources/**" security="none"/><!--not applying security to any  static resources like css js -->
 		
 	<http>
-		<intercept-url pattern="/login" access="permitAll" />
-		<intercept-url pattern="/**" access="hasAuthority('USER')" />
+	<!-- only admin access  -->
+		<intercept-url pattern="/manage/**" access="hasAuthority('ADMIN')" />
+		<!-- only user access(who is registered) -->
+		<intercept-url pattern="/cart/**" access="hasAuthority('USER')" />
+		<!--Rest of the world  -->
+		<intercept-url pattern="/**" access="permitAll" />
 		
 		<!-- hasRole->ROLE_ADMIN,ROLE_USER hasAuthority->USER ADMIN  -->
 		<form-login login-page="/login" /><!--login-processing-url if you want to change login to pqr  -->
+		<access-denied-handler error-page="/access-denied"/>
 		<logout/>
 	</http>
 

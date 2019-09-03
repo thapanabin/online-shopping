@@ -115,5 +115,15 @@ public ModelAndView login(@RequestParam(name = "error",required = false) String 
 	mv.addObject("title", "login");
 	return mv;
 }
+
+/* Access denied page*/
+@RequestMapping(value = "/access-denied")
+public ModelAndView acessDenied() {
+	ModelAndView mv = new ModelAndView("error");
+	mv.addObject("title","403 - Access Denied");
+	mv.addObject("errorTitle","Aha! Caught You");
+	mv.addObject("errorDescription","Your are not authorized to view this page!");
+	return mv;
+}
 	
 }
