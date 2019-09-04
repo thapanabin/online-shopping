@@ -146,7 +146,9 @@
 			<hr />
 		</div>
 		<div class="col-xs-12">
-			<div style="overflow: auto">
+			<div class="container-fluid">
+				<div class="table-responsive">
+				
 				<!-- Products table for admin  -->
 				<table id="adminProductsTable"
 					class="table table-striped table-bordered">
@@ -177,7 +179,14 @@
 
 					</tfoot>
 				</table>
+				
+				
+				</div>
+			
 			</div>
+			<!-- <div style="overflow: auto"> -->
+				
+			<!-- </div> -->
 		</div>
 	</div>
 	<div class="modal " id="myCategoryModal" role="dialog" tabindex="-1">
