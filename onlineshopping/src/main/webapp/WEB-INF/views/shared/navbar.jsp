@@ -28,6 +28,31 @@
 					<li class="nav-item" id="login"><a class="nav-link"
 					href="${contextRoot}/login">Login</a>
 					</li>
+					
+					<li class="dropdown">
+						<a href="javascript:void(0)" class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+						${userModel.fullName}
+						<!-- <span class="caret"></span> -->
+						</a>
+						
+						<ul class="dropdown-menu">
+						
+						<li>
+							<a href="${contextRoot}/cart">
+							<span class="glyphicon glyphicon-shopping-cart"></span>
+							<span class="badge">${userModel.cart.cartLines}</span>
+							- &#36; ${ userModel.cart.grandTotal }
+							</a>
+						</li>
+						<li class="divider" role="separator"></li>
+						
+						<li>
+						<a href="${contextRoot}/logout">Logout</a>
+						</li>
+						
+						</ul>
+					
+					</li>
 			</ul>
 			
 		</div>
