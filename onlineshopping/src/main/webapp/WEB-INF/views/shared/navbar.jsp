@@ -39,7 +39,7 @@
 						<!-- <span class="caret"></span> -->
 						</a>
 						
-						<ul class="dropdown-menu">
+						<ul class="dropdown-menu" id="userCart">
 						<security:authorize access="hasAuthority('USER')">
 						<li>
 							<a href="${contextRoot}/cart/show">
