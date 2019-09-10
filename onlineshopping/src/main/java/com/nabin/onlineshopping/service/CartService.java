@@ -55,4 +55,23 @@ public class CartService {
 		}
 	}
 
+	public String deleteCartLine(int cartLineId) {
+		//fetch the cartline
+		CartLine cartLine = cartLineDAO.get(cartLineId);
+		if(cartLine == null) {
+			return "result = error";
+		}else {
+			//update the cart
+			Cart cart = this.getCart();
+			cart.setGrandTotal(cart.getGrandTotal()-cartLine.getTotal());
+			cart.setCartLines(cart.getCartLines()-1);
+			cartLineDAO.updateCart(cart);
+			
+			//remove the cartline
+			cartLineDAO.delete(cartLine);
+			
+			return "result=deleted";
+		}
+	}
+
 }
