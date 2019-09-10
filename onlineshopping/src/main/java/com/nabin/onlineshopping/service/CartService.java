@@ -36,7 +36,7 @@ public class CartService {
 		return cartLineDAO.list(this.getCart().getId());
 	}
 
-	public String updateCartLine(int cartLineId, int count) {
+	public String manageCartLine(int cartLineId, int count) {
 		//feth the cart line
 		CartLine cartLine = cartLineDAO.get(cartLineId);
 		
@@ -45,8 +45,10 @@ public class CartService {
 		}else {
 			Product product = cartLine.getProduct();
 			double oldTotal = cartLine.getTotal();
-			if(product.getQuantity() <= count) {
-				count = product.getQuantity();
+			
+			//checking if the product is avaiable
+			if(product.getQuantity() < count) {
+				return "result=unavailable";
 			}
 			cartLine.setProductCount(count);
 			cartLine.setBuyingPrice(product.getUnitPrice());
@@ -102,6 +104,15 @@ public class CartService {
 			cartLineDAO.updateCart(cart);
 			
 			response = "result=added";
+		}else {
+			//check if the cartline has reached the maximum count
+			if(cartLine.getProductCount() < 3) {
+				//update the productCount for that cartline
+				response = this.manageCartLine(cartLine.getId(),cartLine.getProductCount()+1);
+				
+			}else {
+				response = "result = maximum";
+			}
 		}
 		
 		

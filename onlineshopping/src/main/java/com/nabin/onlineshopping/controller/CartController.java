@@ -1,7 +1,6 @@
 package com.nabin.onlineshopping.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +31,12 @@ public class CartController {
 			case "added":
 				mv.addObject("message","CartLine has been added Successfully.");
 				break;
+			case "maximum":
+				mv.addObject("message","Cartline has reached to maximum count!");
+				break;
+			case "unavailable":
+				mv.addObject("message","Product quantity is not available!");
+				break;
 			case "error":
 				mv.addObject("message","Something went wrong!");
 			}
@@ -45,7 +50,7 @@ public class CartController {
 	@RequestMapping("/{cartLineId}/update")
 	public String updateCart(@PathVariable int cartLineId,@RequestParam int count) {
 		
-		String response = cartService.updateCartLine(cartLineId,count);
+		String response = cartService.manageCartLine(cartLineId,count);
 		return "redirect:/cart/show?"+response;
 	}
 	
